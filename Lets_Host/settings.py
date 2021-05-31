@@ -27,7 +27,7 @@ SECRET_KEY = '58#o%dyffw)6%#h)i4v2syr6t93n879e)yzks*6%)6+$-g$apb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://arkalsekar-blog.herokuapp.com/', '127.0.0.1', 'http://arkalsekar-blog.herokuapp.com/', 'https://heroku.com/']
+ALLOWED_HOSTS = ['.herokuapp.com', 'https://arkalsekar-blog.herokuapp.com/', '127.0.0.1', 'http://arkalsekar-blog.herokuapp.com/', 'https://heroku.com/']
 
 
 # Application definition
