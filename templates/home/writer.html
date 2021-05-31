@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Post                
+{% endblock title %}
+
+{% block body %}
+
+
+
+    
+<div class="container">
+<h1 class="text-center my-3">Post your Article </h1>
+<form method="POST" action="/writer">
+    {% csrf_token %}
+
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="eg: John Keats">
+  </div>
+
+
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email Address Here">
+  </div>
+
+
+  <div class="form-group">
+    <label for="phone">Title</label>
+    <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your Phone Number">
+  </div>
+
+
+  <div class="form-group">
+    <label for="desc">Content</label>
+    <textarea class="form-control" id="desc" name="desc" placeholder="Description...." rows="3"></textarea>
+  </div>
+
+  <button type="submit" value="submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+
+
+<!-- 
+<img src="https://source.unsplash.com/600x600/?machine,robots" height="600" width="600" alt="">
+ -->
+
+
+{% endblock body %}
+
+

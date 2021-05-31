@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Blogs |
+{% endblock title %}
+
+{% block Blogactive %} active {% endblock Blogactive %}
+
+{% block body %}
+
+<div class="container-fluid mt-0 px-0 ">
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1><img src="/static/my.png" height="250px", width="250px", class="rounded-circle"><br><span id="typeText"></span></h1>
+        <p class="lead text-muted">Welcome to My Blogs.</p>
+        <p>
+          <a href="https://github.com/arkalsekar" class="btn btn-secondary my-2 mx-2">View my Projects</a>
+          <a href="/contact" class="btn btn-success my-2 mx-2">Contact Me</a>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- 
+    <div class="container">
+    <div class="card-deck">
+  <div class="card">
+    <img src="/static/1.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href="#" class="btn btn-success">Read More..</a>
+    </div>
+  </div>
+</div>
+    </div> -->
+
+
+    <div class="container my-4">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for post in allPosts %}
+        <div class="col mb-4">
+          <div class="card">
+            <img src="{{post.image.url}}" height="300" width="300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title |truncatechars:100 }}</h5>
+              <p class="card-text"> {{post.content|safe|truncatechars:100}} </p>
+              <a href="post/{{post.slug}}" class="btn btn-success">Read More..</a>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{post.tags}} </small>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <script>
+      var typed = new Typed('#typeText', {
+      
+        strings: ['Welcome to My Blogs', 'Learn Python,', 'Machine Learning', 'Deep Learning,', 'Algorithms', 'Robotics,', 'Raspberry Pi', 'Linux,', 'Iot,', 'and many such awesome concepts with me..'],
+        typeSpeed: 20,
+        backSpeed: 5,
+        loop: true,
+        backDelay: 1000,
+      });
+      </script>
+
+
+    {% endblock body %}

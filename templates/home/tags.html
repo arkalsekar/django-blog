@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Tags | 
+{% endblock title %}
+
+
+{% block body %} 
+
+
+
+
+
+
+
+<div class="container my-5">
+  <h2> </h2>
+
+</div>
+<br>
+
+
+{% for post in allPosts %}
+<div class="card container">
+    <div class="card-header">
+        New Posts by {{post.author}}  {{post.timeStamp}}
+        <br>
+        
+  </div>
+
+
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.content| truncatechars:155}}.</p>
+    <a href="/blog/post/{{post.slug}}" class="btn btn-primary">Read More</a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+{% endfor %}
+
+{% endblock body %}
+
+
+
+

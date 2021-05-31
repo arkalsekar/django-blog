@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block head %}
+
+
+{% endblock head %}
+
+{% block body %}
+
+{% if slugged_post == "None" %}
+
+<div class="container py-5">
+
+<h2>No Such Post Exist</h2>
+
+</div>
+
+
+{% endif %}
+
+
+
+
+<div class="container py-5">
+
+    {% for post in slugged_post %}
+
+    <div class="container py-2">
+
+        <h1>
+            <b>
+
+                {{post.title}}
+            </b>
+          </h1>
+                <hr>
+               <span class="badge badge-secondary">{{post.tags}}</span> 
+               <!-- https://stackoverflow.com/questions/37287364/iterate-through-django-list-and-display-unique-django-taggit-tags-only -->
+
+              </div>
+
+    <div class="container">
+        <br>
+        {{post.timeStamp}}
+        <b>
+          <a href="/about">  {{post.author}}</a> 
+        </b>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <!-- <div class="container mx-3"> -->
+          <!-- </div> -->
+          
+          <!-- <img height="400" width="400" src="{{post.image.url}}" alt="Image"> -->
+          <div style="font-size: 1.5rem;" id="default"  class="container py-3">
+
+           
+                 {{post.content|safe}}
+          
+            
+          </div>
+
+    
+    </div>
+
+    <hr>
+
+    {% endfor %}
+
+
+</div>
+
+<script>
+    tinymce.init({
+      selector: '#default',
+      inline: True,
+      readonly: 1,
+    });
+  </script>
+
+{% endblock body %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}         
+{% endblock title %}
+
+{% block Homeactive %} active {% endblock Homeactive %}
+
+{% block body %}
+
+
+<!-- https://dcc.godaddy.com/control/arkalsekar.com/settings
+https://dcc.godaddy.com/folders
+
+-->
+
+ <!-- <div class="jumbotron ">
+  <h1><span id="typedtext"></span></h1>
+  <p class="lead">This is my attempt to Teach and give others the Knowledge that I gained Uptill Now and Give Others within the Span of time. Our Vision is to Encourage more and more Students towards AI and ML.</p>
+  <hr class="my-4">
+  <p></p>
+  <a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a>
+</div>
+ -->
+
+
+ <div class="container-fluid mt-0 px-0 ">
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1><img src="/static/my.png" height="250px", width="250px", class="rounded-circle"><br><span id="typedtext"></span></h1>
+        <p class="lead text-muted">I am Fluent in  Python.</p>
+        <p>
+          <a href="/blog" class="btn btn-secondary my-2 mx-2">View my Blogs</a>
+          <a href="/vision" class="btn btn-success my-2 mx-2">View my Projects</a>
+          <a href="/contact" class="btn btn-danger my-2 mx-2">Contact Me</a>
+        </p>
+      </div>
+    </section>
+
+
+
+
+ 
+            <!-- Card -->
+            
+
+            <h3 class="px-3">Latest Blog from {{alposts.timeStamp}} by {{alposts.author}} </h3>
+
+
+            
+
+      
+
+    <div class="container my-4">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% block alposts %}
+        <div class="col mb-4">
+          <div class="card">
+            <img src="{{alposts.image.url}}" height="350" width="400" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{alposts.title |truncatechars:100 }}</h5>
+              <p class="card-text"> {{poalpostssalpostst.content|truncatechars:100}} </p>
+              <a href="/blog/post/{{alposts.slug}}" class="btn btn-success">Read More..</a>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">10 Min Read..</small>
+            </div>
+          </div>
+        </div>
+
+        {% endblock alposts %}
+      </div>
+    </div>
+
+
+
+
+
+
+<script>
+var typed = new Typed('#typedtext', {
+
+  strings: ['Welcome to My Blogs', 'I am Abdul Rehman Kalsekar.', 'Read Blogs on ', 'Deep Learning,', 'Algorithms', 'Robotics,', 'Raspberry Pi', 'Linux,', 'Iot,', 'and many such awesome concepts here..'],
+  typeSpeed: 20,
+  backSpeed: 5,
+  loop: true,
+  backDelay: 1000,
+});
+</script>
+
+
+{% endblock body %}
