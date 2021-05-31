@@ -1,1 +1,1 @@
-web:gunicorn Lets_Host.wsgi --log-file
+web:gunicorn Lets_Host.wsgi
